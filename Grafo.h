@@ -1,7 +1,7 @@
 /*****************************************************************************************************************************
-Fecha: 16 octubre 2024
-Autor: Manuel Rincon
-Tema: Taller Grafos Clase 1
+Fecha: 23 octubre 2024
+Autor: Daniel Rosas
+Tema: Taller Grafos Clase 2
 Estructuras de datos
 ******************************************************************************************************************************/
 
@@ -15,14 +15,21 @@ Estructuras de datos
 template <typename T, typename W>
 class Grafo {
 public:
-    std::unordered_map<T, std::shared_ptr<Vertice<T, W>>> vertices; // Note the use of Vertice<T, W>
+    std::unordered_map<T, std::shared_ptr<Vertice<T, W>>> vertices;
 
     void agregarVertice(T dato);
+    void eliminarVertice(T dato);
+    void actualizarVertice(T datoAntiguo, T datoNuevo);
     void agregarArista(T origen, T destino, W peso);
+    void eliminarArista(T origen, T destino);
+    void actualizarArista(T origen, T destino, W nuevoPeso);
     void imprimirGrafo() const;
+
+    int obtenerCantidadVertices() const;
+    int obtenerCantidadAristas() const;
+    std::shared_ptr<Vertice<T, W>> buscarVertice(T dato) const;
+    bool buscarArista(T origen, T destino) const;
 };
-
-
 
 #include "Grafo.hxx"
 
